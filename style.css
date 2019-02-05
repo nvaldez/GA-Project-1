@@ -35,12 +35,30 @@ li {
 }
 
 /* style for the divs that contains the question and answer */
+#main-div {
+    display: flex;
+    justify-content: center;
+    
+}
 #div-question{
     border: 2px solid black;
     border-radius: 10px;
     width: 350px;
     height: 300px;
     margin: 20px 0;
+}
+
+#div-answer{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 350px;
+    height: 300px;
+    margin: 20px 0;
+}
+
+#show-answer {
+    text-decoration: none;
+    margin: 15px;
 }
 #div-question p {
     text-align: center;
