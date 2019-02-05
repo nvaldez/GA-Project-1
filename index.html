@@ -1,28 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flash Cards</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
+    <!-- webpage header -->
     <header>
         <h1>Web Developer Flash Card</h1>
-        <h3>Let's Test Your Knowledge!</h3>
+        <h2>Let's Test Your Knowledge!</h2>
     </header>
 
+    <!-- webpage main -->
     <main>
-        <h1>Please choose a category form the options below</h1>
-        <ul>
-            <li><a href="#">HTML</a></li>
-            <li><a href="#">CSS</a></li>
-            <li><a href="#">JavaScript</a></li>
+        <h1 id="main-header">Please choose a category form the options below</h1>
+
+        <!-- ul with with links to choose a category -->
+        <ul id="category">
+            <li><a href="#" class="links">HTML</a></li>
+            <li><a href="#" class="links">CSS</a></li>
+            <li><a href="#" class="links">JavaScript</a></li>
         </ul>
+
+        <!-- divs for the questions and answers -->
+        <h3 id="h-question">Question</h3>
+
+        <div id="div-question">
+            <p>Please click here to start</p>
+        </div>
+        
+        <div id="answer"></div>
     </main>
 
+    <!-- webpage footer -->
     <footer>
+        <!-- anchor tag with a link that takes you to Mozilla Devellper Network(MDN) -->
         <a href="#">Click here to learn more</a>
     </footer>
+    <script src="./script.js"></script>
 </body>
+
 </html>

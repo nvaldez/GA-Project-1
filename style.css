@@ -1,0 +1,53 @@
+/* style for the body element */
+body {
+    max-width: 800px;
+    margin: 0 auto;
+    height: 500px;
+}
+
+/* style for the header elements */
+header {
+    text-align: center;
+}
+
+/* style for the main elements */
+#main-header {
+    text-align: center;
+}
+
+#h-question {
+    margin-left: 20px;
+}
+
+/* style for the ul that contains the category links */
+#category {
+    list-style-type: none;
+    text-align: center;
+
+}
+li {
+    display: inline;
+}
+
+.links {
+    text-decoration: none;
+    margin: 15px;
+}
+
+/* style for the divs that contains the question and answer */
+#div-question{
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 350px;
+    height: 300px;
+    margin: 20px 0;
+}
+#div-question p {
+    text-align: center;
+    height: 150px;
+}
+
+/* style for the footer element */
+footer {
+    text-align: center;
+}
