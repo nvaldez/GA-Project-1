@@ -87,7 +87,10 @@ li {
 }
 #div-question p {
     text-align: center;
-    /* height: 150px; */
+}
+
+#div-answer p {
+    text-align: center;
 }
 
 #mdn {
