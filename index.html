@@ -18,7 +18,7 @@
 
     <!-- webpage main -->
     <main>
-        <h1 id="main-header">Please choose a category form the options below</h1>
+        <h1 id="main-header">Please choose a category from the options below</h1>
 
         <!-- ul with with links to choose a category -->
         <ul id="category">
@@ -27,19 +27,25 @@
             <li><a href="#" class="links">JavaScript</a></li>
         </ul>
 
+        <div id="title">
+            <h3 id="h-question">Question</h3>
+            <h3 id="h-answer">Answer</h3>
+        </div>
+
         <div id="main-div">
 
-            <!-- divs for the questions and answers -->
-            <h3 id="h-question">Question</h3>
-
             <div id="div-question">
-                <p>Please click here to start</p>
+
+                <!-- divs for the questions -->
+                <div>
+                    <p>Please click here to start</p>
+                </div>
             </div>
 
             <!-- anchor tag for the link that shows the answer -->
-            <a href="#" id="show-answer">Show Answer</a>
+            <a href="#" class="show-answer">Show Answer</a>
+            <a href="#" class="show-answer">Next Question</a>
 
-            <h3 id="h-answer">Question</h3>
             <div id="div-answer"></div>
         </div>
 
@@ -48,7 +54,7 @@
     <!-- webpage footer -->
     <footer>
         <!-- anchor tag with a link that takes you to Mozilla Devellper Network(MDN) -->
-        <a href="#">Click here to learn more</a>
+        <a href="#" id="mdn">Click here to learn more</a>
     </footer>
     <script src="./script.js"></script>
 </body>
