@@ -1,50 +1,54 @@
-// Array with questions and answers for the HTML section
-let htmlInfo = [
-    {
-        question: 'What is HTML?',
-        answer1: 'HTML (HyperText Markup Language) is the most basic building block of the Web.'
-    },
 
-    {
-        question: 'What does HyperText refer to?',
-        answer2: '"HyperText" refers to links that connect web pages to one another, either within a single website or between websites.'
-    },
-
-    {
-        question: 'The HTML <head>',
-        answer3: 'The HTML <head> element provides general information (metadata) about the document, including its title and links to its scripts and style sheets.'
-    }
-];
-
+// grabs the HTML button from the DOM
 let htmlQuestion = document.getElementById('html-section');
 
-let counter = 0;
+let counterQuestion = 0;
+let instruction = 1;
+
+// add instructions when the "HTML" buttom is clicked
 htmlQuestion.addEventListener('click', function () {
 
+    if (instruction === 1) {
 
-    // for (let i = 0; i < htmlInfo.length; i++) {
-
-        // if (counter === i) {
-
-            let node = document.createElement("p");
-            let text = document.createTextNode(htmlInfo[counter].question);
-            node.appendChild(text)
-            document.getElementById("div-question").appendChild(node);
-
-            counter = counter + 1;
-            console.log(counter);
-        // }
-       
-    // }
+        let node = document.createElement("p");
+        let text = document.createTextNode('Please click on next question to begin.')
+        node.appendChild(text)
+        document.getElementById("div-question").appendChild(node);
+        instruction++;
+    }
 });
 
-let htmlAnswer = document.getElementById('answer');
+// show the next question when "Next Question" buttom is click
+let question = document.getElementById('question');
+question.addEventListener('click', function(){
 
-htmlAnswer.addEventListener('click', function () {
+     if (counterQuestion < htmlInfo.length) {
+
+        let node = document.createElement("p");
+        let text = document.createTextNode(htmlInfo[counterQuestion].question);
+        node.appendChild(text)
+        document.getElementById("div-question").appendChild(node);
+
+        counterQuestion++;
+    }
 
 })
 
+// grabs the "Show Answer" buttom from the DOM
+let htmlAnswer = document.getElementById('answer');
 
+let counterAnswer = 0;
 
-// console.log(htmlInfo[2].question3);
-// console.log(htmlInfo[2].answer3);
+// show the next answer when "Show Answer" buttom is click
+htmlAnswer.addEventListener('click', function () {
+
+    if (counterAnswer < htmlInfo.length) {
+
+        let node = document.createElement("p");
+        let text = document.createTextNode(htmlInfo[counterAnswer].answer);
+        node.appendChild(text)
+        document.getElementById("div-answer").appendChild(node);
+
+        counterAnswer++;    
+}
+});
