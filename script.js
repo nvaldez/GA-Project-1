@@ -41,21 +41,18 @@ let answers = [
     },
 
     {
-        answer: ['HyperText" refers to links that connect web pages to one another, either within a single website or between websites.', 'test2',
-            'another test2', 'final test2'],
+        answer: ['test2', 'HyperText" refers to links that connect web pages to one another, either within a single website or between websites.', 'another test2', 'final test2'],
         correctAnswerIndex: 1
     },
 
     {
-        answer: ['The HTML <head> element provides general information (metadata) about the document, including its title and links to its scripts and style sheet', 'test3',
-            'another test3', 'final test3'],
+        answer: ['test3', 'another test3', 'The HTML <head> element provides general information (metadata) about the document, including its title and links to its scripts and style sheet', 'final test3'],
         correctAnswerIndex: 2
     }
 ];
 
 // grabs the HTML button from the DOM
 // let htmlQuestion = document.getElementById('html-section');
-
 let countQuestion = 0;
 let countAnswer = -1;
 // let instruction = 1;
@@ -72,6 +69,9 @@ let countAnswer = -1;
 //         instruction++;
 //     }
 // });
+
+
+
 
 // show the next question when "Next Question" buttom is click
 let question = document.getElementById('question');
@@ -115,20 +115,33 @@ question.addEventListener('click', function () {
     }
 })
 
+// let wrong = document.querySelectorAll('.button-answer');
 
+// grabbing the div-answer object from the DOM
 let divAnswer = document.getElementById('div-answer');
 divAnswer.addEventListener('click', function (evt) {
-
+    // get answer elements from the DOM
+    
+    let answerDom = document.querySelectorAll('.button-answer');
+    // loop through answer elements
+    for (let i = 0; i < answerDom.length; i++) {
+        const answer = answerDom[i];  
+        answer.style.pointerEvents = 'none';     
+    }
+    
     if (evt.target.getAttribute('data-index') == answers[countAnswer].correctAnswerIndex) {
         evt.target.style.backgroundColor = 'green';
         console.log('correct');
+        question.style.pointerEvents = 'auto';
 
     }
-    else {
+    else if(evt.target.getAttribute('data-index') != answers[countAnswer].correctAnswerIndex) {
         console.log('wrong');
+        // wrong.style.pointerEvents = 'none'
+        // wrong.style.backgroundColor = 'red';
         evt.target.style.backgroundColor = 'red';
+        // evt.target.style.pointerEvents = 'none'
     }
-
 })
 
 
