@@ -49,7 +49,7 @@ let answers = [
     {
         answer: ['The HTML <head> element provides general information (metadata) about the document, including its title and links to its scripts and style sheet', 'test3',
             'another test3', 'final test3'],
-            correctAnswerIndex: 2
+        correctAnswerIndex: 2
     }
 ];
 
@@ -57,6 +57,7 @@ let answers = [
 // let htmlQuestion = document.getElementById('html-section');
 
 let countQuestion = 0;
+let countAnswer = -1;
 // let instruction = 1;
 
 // add instructions when the "HTML" buttom is clicked
@@ -108,36 +109,26 @@ question.addEventListener('click', function () {
             document.getElementById("div-answer").appendChild(node);
 
         }
-        // coiunter to move through the indexes of the arrays
+        // coiunter to move through the indexes of the arrays "questions" and "answers"
         countQuestion++;
+        countAnswer++;
     }
 })
 
-let divAnswer = document.getElementById('div-answer');
 
+let divAnswer = document.getElementById('div-answer');
 divAnswer.addEventListener('click', function (evt) {
 
-    // MOVE OUTSIDE OF THE OTHER EVENT LISTENER!!!!!!!!
-    // add event listenter to parent so when use clicks on a button (that we just created), check/validate the answer
+    if (evt.target.getAttribute('data-index') == answers[countAnswer].correctAnswerIndex) {
+        evt.target.style.backgroundColor = 'green';
+        console.log('correct');
 
-    // step one: define Event Target, add Event Listener
-    // Event Handler: check Event Object to see if the target (evt.target) has the .button-answer class
-
-    for (let i = 0; i < answers.length; i++) {
-        
-        if (evt.target.getAttribute('data-index') == answers[i].correctAnswerIndex[i]) {
-            console.log('correct');
-        }
-        else {
-            console.log('wrong');
-        }
-        
+    }
+    else {
+        console.log('wrong');
+        evt.target.style.backgroundColor = 'red';
     }
 
-    // then, check the data-index to see if it matches the index of the correct answer
-    // then handle correct/incorrect answers appropriately
-
-    // console.log(evt.target.classList.contains('button-answer'))  
 })
 
 
