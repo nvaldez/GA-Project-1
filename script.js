@@ -1,13 +1,15 @@
 let arrayInfo = [
     {
         question: 'What is HTML?',
-        answer: 'HTML (HyperText Markup Language) is the most basic building block of the Web.',
+        answer: ['HTML (HyperText Markup Language) is the most basic building block of the Web.', 'test1',
+            'another test1', 'final test1'],
         tag: 'HTML'
     },
 
     {
         question: 'What does HyperText refer to?',
-        answer: 'HyperText" refers to links that connect web pages to one another, either within a single website or between websites.',
+        answer: ['HyperText" refers to links that connect web pages to one another, either within a single website or between websites.', 'test2',
+            'another test2', 'final test2'],
         tag: 'HTML'
     },
 
@@ -17,22 +19,39 @@ let arrayInfo = [
         tag: 'HTML'
     },
 
+    // {
+    //     question: 'What is CSS?',
+    //     answer: 'Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML.',
+    //     tag: 'CSS'
+    // },
+
+    // {
+    //     question: 'What is a CCS Selector?',
+    //     answer: 'A CSS Selector is the HTML element name at the start of the rule set. It selects the element(s) to be styled.',
+    //     tag: 'CSS'
+    // },
+
+    // {
+    //     question: 'What is a CSS Declaration?',
+    //     answer: 'A single rule like color: red; specifying which of the element\'s properties you want to style.',
+    //     tag: 'CSS'
+    // }
+];
+
+let answers = [
     {
-        question: 'What is CSS?',
-        answer: 'Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML.',
-        tag: 'CSS'
+        answer: ['HTML (HyperText Markup Language) is the most basic building block of the Web.', 'test1',
+            'another test1', 'final test1'],
     },
 
     {
-        question: 'What is a CCS Selector?',
-        answer: 'A CSS Selector is the HTML element name at the start of the rule set. It selects the element(s) to be styled.',
-        tag: 'CSS'
+        answer: ['HyperText" refers to links that connect web pages to one another, either within a single website or between websites.', 'test2',
+            'another test2', 'final test2'],
     },
 
     {
-        question: 'What is a CSS Declaration?',
-        answer: 'A single rule like color: red; specifying which of the element\'s properties you want to style.',
-        tag: 'CSS'
+        answer: ['The HTML <head> element provides general information (metadata) about the document, including its title and links to its scripts and style sheet', 'test3',
+        'another test3', 'final test3']
     }
 ];
 
@@ -60,6 +79,7 @@ let question = document.getElementById('question');
 question.addEventListener('click', function () {
 
     document.getElementById("div-question").innerHTML = "";
+    document.getElementById("div-answer").innerHTML = "";
 
     if (countQuestion === arrayInfo.length) {
 
@@ -76,6 +96,15 @@ question.addEventListener('click', function () {
         node.appendChild(text);
         document.getElementById("div-question").appendChild(node);
 
+            for (let j = 0; j < 4; j++){
+
+                let node = document.createElement("p");
+                let text = document.createTextNode(answers[countQuestion].answer[j]);
+                node.appendChild(text);
+                document.getElementById("div-answer").appendChild(node);
+
+            }
+            
         countQuestion++;
     }
 })
