@@ -76,7 +76,7 @@ let countAnswer = -1;
 let correctAnswers = 0
 
 // alert the total of correct questions answered
-function alertMessage(){
+function alertMessage() {
 
     alert(`You answered ${correctAnswers} out of ${countQuestion} questions correctly`)
 }
@@ -114,7 +114,7 @@ function addQuestions() {
 }
 
 // function that creates a button for every possible answer for each question
-function addAnswers (){
+function addAnswers() {
 
     for (let j = 0; j < 4; j++) {
 
@@ -130,8 +130,11 @@ function addAnswers (){
 }
 
 // function that avoids clicking when an answer is selected
-function avoidClick(){
+function avoidClick() {
+
     let answerDom = document.querySelectorAll('.button-answer');
+
+
 
     // loop through answer elements
     for (let i = 0; i < answerDom.length; i++) {
@@ -162,18 +165,21 @@ question.addEventListener('click', function () {
 let divAnswer = document.getElementById('div-answer');
 divAnswer.addEventListener('click', function (evt) {
 
-    avoidClick();
 
-    // mark the current answer with a background color of green and keeps track of the correct answer
-    if (evt.target.getAttribute('data-index') == answers[countAnswer].correctAnswerIndex) {
-        evt.target.style.backgroundColor = 'green';
-        correctAnswers++;
-    }
-    
-    // mark the wrong answer with a background color of red
-    else if (evt.target.getAttribute('data-index') != answers[countAnswer].correctAnswerIndex) {
-        evt.target.style.backgroundColor = 'red';
+    if (evt.target.classList.contains('button-answer')) {
+        // mark the current answer with a background color of green and keeps track of the correct answer
+        if (evt.target.getAttribute('data-index') == answers[countAnswer].correctAnswerIndex) {
+            evt.target.style.backgroundColor = 'green';
+            correctAnswers++;
+        }
 
+        // mark the wrong answer with a background color of red
+        else if (evt.target.getAttribute('data-index') != answers[countAnswer].correctAnswerIndex) {
+            evt.target.style.backgroundColor = 'red';
+
+        }
+        avoidClick();
     }
+
 
 })
