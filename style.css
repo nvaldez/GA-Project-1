@@ -30,6 +30,7 @@ header > h2 {
     display: flex;
     justify-content: space-between;
     margin: 0 15%;
+    color: darkcyan;
 }
 
 /* style for the ul that contains the category links */
@@ -51,7 +52,7 @@ li {
 .links {
     text-decoration: none;
     margin: 0 20px;
-    color: cadetblue;
+    color: darkcyan;
     
 }
 
@@ -59,7 +60,7 @@ li {
 #main-div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 90px;
 
 }
 #div-question{
@@ -83,7 +84,8 @@ li {
     align-self: center;
     padding: 5px;
     text-align: center;
-    color: cadetblue;
+    color: darkcyan;
+    font-size: 1.5em;
 }
 #div-question p {
     text-align: center;
@@ -109,12 +111,22 @@ li {
     font-size: 2em; 
 }
 
-#mdn {
+/* #mdn {
     color: cadetblue;
-}
+} */
 
 /* style for the footer element */
 footer {
-    text-align: center;
-    
+    text-align: center;  
+    display: flex;
+    flex-direction: column;
 }
+footer > a {  
+    color: darkcyan;
+    font-size: 1.5em;
+    margin: 10px;
+}
+
+a:link {
+    text-decoration: none;
+  }

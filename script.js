@@ -177,13 +177,13 @@ divAnswer.addEventListener('click', function (evt) {
     if (evt.target.classList.contains('button-answer')) {
         // mark the current answer with a background color of green and keeps track of the correct answer
         if (evt.target.getAttribute('data-index') == answers[countAnswer].correctAnswerIndex) {
-            evt.target.style.backgroundColor = 'green';
+            evt.target.style.backgroundColor = '#1c6328';
             correctAnswers++;
         }
 
         // mark the wrong answer with a background color of red
         else if (evt.target.getAttribute('data-index') != answers[countAnswer].correctAnswerIndex) {
-            evt.target.style.backgroundColor = 'red';
+            evt.target.style.backgroundColor = '#c11919';
 
         }
         avoidClick();
@@ -191,3 +191,7 @@ divAnswer.addEventListener('click', function (evt) {
 
 
 })
+
+function myFunction() {
+    location.reload();
+  }
