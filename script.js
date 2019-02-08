@@ -75,11 +75,6 @@ let countQuestion = 0;
 let countAnswer = -1;
 let correctAnswers = 0
 
-// alert the total of correct questions answered
-function alertMessage() {
-
-    alert(`You answered ${correctAnswers} out of ${countQuestion} questions correctly`)
-}
 
 // resetting the divs everytime someone clicks the button
 function clearDivs() {
@@ -89,16 +84,27 @@ function clearDivs() {
 }
 
 // creating a message that displays "Thank you for participating!" when the questions are finished.
-function message() {
+function questionMessage() {
 
     if (countQuestion === questions.length) {
         const message = document.createElement('p');
         const messageText = document.createTextNode('Thank you for participating!')
         message.appendChild(messageText);
         document.getElementById("div-question").appendChild(message);
-
-        alertMessage()
     }
+}
+
+function answerMessage(){
+
+    if (countQuestion === answers.length) {
+        const message = document.createElement('p');
+        const messageText = document.createTextNode(`You answered ${correctAnswers} out of ${countQuestion} questions correctly`)
+        message.appendChild(messageText);
+        document.getElementById("div-answer").appendChild(message);
+
+        // alertMessage()
+    }
+
 }
 
 // adding one question at the time when someone clicks "Next Question"
@@ -149,9 +155,11 @@ question.addEventListener('click', function () {
 
     clearDivs();
 
-    message();
+    questionMessage();
 
     addQuestions();
+
+    answerMessage()
 
     addAnswers();
 

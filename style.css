@@ -103,6 +103,12 @@ li {
     color: black;
 }
 
+#div-answer > p {
+    text-align: center;
+    margin-top: 35%;
+    font-size: 2em; 
+}
+
 #mdn {
     color: cadetblue;
 }
