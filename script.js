@@ -98,10 +98,12 @@ function answerMessage(){
 
     if (countQuestion === answers.length) {
         const message = document.createElement('p');
-        const messageText = document.createTextNode(`You answered ${correctAnswers} out of ${countQuestion} questions correctly`)
+        const percentage = Math.floor(correctAnswers / countQuestion * 100)
+        console.log()
+        const messageText = document.createTextNode(`You answered ${correctAnswers} out of ${countQuestion} questions correctly \n That's ${percentage}%`)
         message.appendChild(messageText);
         document.getElementById("div-answer").appendChild(message);
-
+        document.getElementById('question').style.pointerEvents = "none"
         // alertMessage()
     }
 
@@ -122,16 +124,18 @@ function addQuestions() {
 // function that creates a button for every possible answer for each question
 function addAnswers() {
 
-    for (let j = 0; j < 4; j++) {
-
-        let node = document.createElement("a");
-        node.setAttribute('href', '#');
-        node.setAttribute('class', 'button-answer')
-        node.setAttribute('data-index', j)
-        let text = document.createTextNode(answers[countQuestion].answer[j]);
-        node.appendChild(text);
-        document.getElementById("div-answer").appendChild(node);
-
+    if (answers[countQuestion]) {
+        for (let j = 0; j < 4; j++) {
+    
+            let node = document.createElement("a");
+            node.setAttribute('href', '#');
+            node.setAttribute('class', 'button-answer')
+            node.setAttribute('data-index', j)
+            let text = document.createTextNode(answers[countQuestion].answer[j]);
+            node.appendChild(text);
+            document.getElementById("div-answer").appendChild(node);
+    
+        }
     }
 }
 
@@ -166,6 +170,8 @@ question.addEventListener('click', function () {
     // counter to move through the indexes of the arrays "questions" and "answers"
     countQuestion++;
     countAnswer++;
+    // if (countQuestion < answers.length) { countQuestion++; }
+    // if (countAnswer < answers.length) { countAnswer++; }
 
 })
 
@@ -192,6 +198,7 @@ divAnswer.addEventListener('click', function (evt) {
 
 })
 
-function myFunction() {
+// 
+function restart() {
     location.reload();
   }
