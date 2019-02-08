@@ -100,13 +100,12 @@ function answerMessage(){
         const message = document.createElement('p');
         const percentage = Math.floor(correctAnswers / countQuestion * 100)
         console.log()
-        const messageText = document.createTextNode(`You answered ${correctAnswers} out of ${countQuestion} questions correctly \n That's ${percentage}%`)
+        const messageText = document.createTextNode(`You answered ${correctAnswers} out of ${countQuestion} questions correctly. \n That's ${percentage}%`)
         message.appendChild(messageText);
         document.getElementById("div-answer").appendChild(message);
         document.getElementById('question').style.pointerEvents = "none"
         // alertMessage()
     }
-
 }
 
 // adding one question at the time when someone clicks "Next Question"
