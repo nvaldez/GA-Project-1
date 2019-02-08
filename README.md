@@ -12,4 +12,4 @@ This Flash Card website was builded using HTML, CSS, and JavaScript.
 
 Please click the link below to see the flash cards website.
 
-https://nvaldez.github.io/GA-Project-1/# 
+https://nvaldez.github.io/GA-Project-1/
