@@ -75,6 +75,12 @@ let countQuestion = 0;
 let countAnswer = -1;
 let correctAnswers = 0
 
+// alert the total of correct questions answered
+function alertMessage(){
+
+    alert(`You answered ${correctAnswers} out of ${countQuestion} questions correctly`)
+}
+
 // resetting the divs everytime someone clicks the button
 function clearDivs() {
 
@@ -82,7 +88,7 @@ function clearDivs() {
     document.getElementById("div-answer").innerHTML = "";
 }
 
-// creating a message and displaying total correct answers when there are not any questions left
+// creating a message that displays "Thank you for participating!" when the questions are finished.
 function message() {
 
     if (countQuestion === questions.length) {
@@ -90,7 +96,8 @@ function message() {
         const messageText = document.createTextNode('Thank you for participating!')
         message.appendChild(messageText);
         document.getElementById("div-question").appendChild(message);
-        alert(`You answered ${correctAnswers} out of ${countQuestion} questions correctly`)
+
+        alertMessage()
     }
 }
 
@@ -122,6 +129,17 @@ function addAnswers (){
     }
 }
 
+// function that avoids clicking when an answer is selected
+function avoidClick(){
+    let answerDom = document.querySelectorAll('.button-answer');
+
+    // loop through answer elements
+    for (let i = 0; i < answerDom.length; i++) {
+        const answer = answerDom[i];
+        answer.style.pointerEvents = 'none';
+    }
+}
+
 // Display questions when the "Next Button" is clicked
 let question = document.getElementById('question');
 question.addEventListener('click', function () {
@@ -144,13 +162,7 @@ question.addEventListener('click', function () {
 let divAnswer = document.getElementById('div-answer');
 divAnswer.addEventListener('click', function (evt) {
 
-    let answerDom = document.querySelectorAll('.button-answer');
-
-    // loop through answer elements
-    for (let i = 0; i < answerDom.length; i++) {
-        const answer = answerDom[i];
-        answer.style.pointerEvents = 'none';
-    }
+    avoidClick();
 
     // mark the current answer with a background color of green and keeps track of the correct answer
     if (evt.target.getAttribute('data-index') == answers[countAnswer].correctAnswerIndex) {
