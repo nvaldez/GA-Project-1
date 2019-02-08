@@ -99,12 +99,10 @@ function answerMessage(){
     if (countQuestion === answers.length) {
         const message = document.createElement('p');
         const percentage = Math.floor(correctAnswers / countQuestion * 100)
-        console.log()
         const messageText = document.createTextNode(`You answered ${correctAnswers} out of ${countQuestion} questions correctly. \n That's ${percentage}%`)
         message.appendChild(messageText);
         document.getElementById("div-answer").appendChild(message);
         document.getElementById('question').style.pointerEvents = "none"
-        // alertMessage()
     }
 }
 
@@ -133,7 +131,6 @@ function addAnswers() {
             let text = document.createTextNode(answers[countQuestion].answer[j]);
             node.appendChild(text);
             document.getElementById("div-answer").appendChild(node);
-    
         }
     }
 }
@@ -142,8 +139,6 @@ function addAnswers() {
 function avoidClick() {
 
     let answerDom = document.querySelectorAll('.button-answer');
-
-
 
     // loop through answer elements
     for (let i = 0; i < answerDom.length; i++) {
@@ -169,15 +164,11 @@ question.addEventListener('click', function () {
     // counter to move through the indexes of the arrays "questions" and "answers"
     countQuestion++;
     countAnswer++;
-    // if (countQuestion < answers.length) { countQuestion++; }
-    // if (countAnswer < answers.length) { countAnswer++; }
-
 })
 
 // grabbing the div-answer object from the DOM
 let divAnswer = document.getElementById('div-answer');
 divAnswer.addEventListener('click', function (evt) {
-
 
     if (evt.target.classList.contains('button-answer')) {
         // mark the current answer with a background color of green and keeps track of the correct answer
@@ -193,11 +184,9 @@ divAnswer.addEventListener('click', function (evt) {
         }
         avoidClick();
     }
-
-
 })
 
-// 
+// this function reloads the page
 function restart() {
     location.reload();
   }
