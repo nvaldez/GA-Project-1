@@ -1,4 +1,5 @@
 GA-Project 1
+
 This project represent a flash card game for Web Developers to test their knowledge about the following technologies:
 
 *HTML
