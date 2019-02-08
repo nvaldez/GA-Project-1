@@ -1,33 +1,31 @@
 // Array with questions
 let questions = [
     {
-        question: 'What is HTML?',
-        tag: 'HTML'
+        question: 'What is HTML?'
     },
-
     {
-        question: 'What does HyperText refer to?',
-        tag: 'HTML'
+        question: 'What does HyperText refer to?'
     },
-
     {
-        question: 'The HTML <head>',
-        tag: 'HTML'
+        question: 'The HTML <head>'
     },
-
     {
-        question: 'What is CSS?',
-        tag: 'CSS'
+        question: 'What is CSS?'
     },
-
     {
-        question: 'What is a CCS Selector?',
-        tag: 'CSS'
+        question: 'What is a CCS Selector?'
     },
-
     {
-        question: 'What is a CSS Declaration?',
-        tag: 'CSS'
+        question: 'What is a CSS Declaration?'
+    },
+    {
+        question: 'JavaScript (JS)'
+    },
+    {
+        question: 'Variables'
+    },
+    {
+        question: 'Functions'
     }
 ];
 
@@ -38,31 +36,39 @@ let answers = [
             'another test1', 'final test1'],
         correctAnswerIndex: 0
     },
-
     {
         answer: ['test2', 'HyperText" refers to links that connect web pages to one another, either within a single website or between websites.', 'another test2', 'final test2'],
         correctAnswerIndex: 1
     },
-
     {
         answer: ['test3', 'another test3', 'The HTML <head> element provides general information (metadata) about the document, including its title and links to its scripts and style sheet', 'final test3'],
         correctAnswerIndex: 2
     },
-
     {
         answer: ['test 1', 'test 2', 'test 3', 'Cascading Style Sheets (CSS)'],
         correctAnswerIndex: 3
     },
-
     {
         answer: ['A CSS Selector selects the element(s) to be styled.', 'test 1', 'test 2', 'test 3'],
         correctAnswerIndex: 0
     },
-
     {
         answer: ['test 1', 'A single rule like color: red; specifying which of the element\'s properties you want to style.', 'test 2', 'test 3'],
         correctAnswerIndex: 1
+    },
+    {
+        answer: ['test 1', 'test 2', 'Scripting language for Web pages', 'test 3'],
+        correctAnswerIndex: 2
+    },
+    {
+        answer: ['test 1', 'test 2', 'test 3', 'Variables are containers that you can store values in'],
+        correctAnswerIndex: 3
+    },
+    {
+        answer: ['Functions are a way of packaging functionality that you wish to reuse', 'test 1', 'test 2', 'test 3'],
+        correctAnswerIndex: 0
     }
+
 ];
 
 let countQuestion = 0;
