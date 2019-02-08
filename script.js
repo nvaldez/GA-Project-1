@@ -1,4 +1,5 @@
-let arrayInfo = [
+// Array with questions
+let questions = [
     {
         question: 'What is HTML?',
         tag: 'HTML'
@@ -14,25 +15,23 @@ let arrayInfo = [
         tag: 'HTML'
     },
 
-    // {
-    //     question: 'What is CSS?',
-    //     answer: 'Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML.',
-    //     tag: 'CSS'
-    // },
+    {
+        question: 'What is CSS?',
+        tag: 'CSS'
+    },
 
-    // {
-    //     question: 'What is a CCS Selector?',
-    //     answer: 'A CSS Selector is the HTML element name at the start of the rule set. It selects the element(s) to be styled.',
-    //     tag: 'CSS'
-    // },
+    {
+        question: 'What is a CCS Selector?',
+        tag: 'CSS'
+    },
 
-    // {
-    //     question: 'What is a CSS Declaration?',
-    //     answer: 'A single rule like color: red; specifying which of the element\'s properties you want to style.',
-    //     tag: 'CSS'
-    // }
+    {
+        question: 'What is a CSS Declaration?',
+        tag: 'CSS'
+    }
 ];
 
+// array with answers
 let answers = [
     {
         answer: ['HTML (HyperText Markup Language) is the most basic building block of the Web.', 'test1',
@@ -48,135 +47,115 @@ let answers = [
     {
         answer: ['test3', 'another test3', 'The HTML <head> element provides general information (metadata) about the document, including its title and links to its scripts and style sheet', 'final test3'],
         correctAnswerIndex: 2
+    },
+
+    {
+        answer: ['test 1', 'test 2', 'test 3', 'Cascading Style Sheets (CSS)'],
+        correctAnswerIndex: 3
+    },
+
+    {
+        answer: ['A CSS Selector selects the element(s) to be styled.', 'test 1', 'test 2', 'test 3'],
+        correctAnswerIndex: 0
+    },
+
+    {
+        answer: ['test 1', 'A single rule like color: red; specifying which of the element\'s properties you want to style.', 'test 2', 'test 3'],
+        correctAnswerIndex: 1
     }
 ];
 
-// grabs the HTML button from the DOM
-// let htmlQuestion = document.getElementById('html-section');
 let countQuestion = 0;
 let countAnswer = -1;
-// let instruction = 1;
+let correctAnswers = 0
 
-// add instructions when the "HTML" buttom is clicked
-// htmlQuestion.addEventListener('click', function () {
+// resetting the divs everytime someone clicks the button
+function clearDivs() {
 
-//     if (instruction === 1) {
-
-//         let node = document.createElement("p");
-//         let text = document.createTextNode('Please click on \"Next Question\" to begin.')
-//         node.appendChild(text)
-//         document.getElementById("div-question").appendChild(node);
-//         instruction++;
-//     }
-// });
-
-
-
-
-// show the next question when "Next Question" buttom is click
-let question = document.getElementById('question');
-question.addEventListener('click', function () {
-
-    // resetting the divs everytime some clicks the button
     document.getElementById("div-question").innerHTML = "";
     document.getElementById("div-answer").innerHTML = "";
+}
 
-    // creating a message when there are not any question left
-    if (countQuestion === arrayInfo.length) {
+// creating a message and displaying total correct answers when there are not any questions left
+function message() {
+
+    if (countQuestion === questions.length) {
         const message = document.createElement('p');
         const messageText = document.createTextNode('Thank you for participating!')
         message.appendChild(messageText);
         document.getElementById("div-question").appendChild(message);
+        alert(`You answered ${correctAnswers} out of ${countQuestion} questions correctly`)
     }
+}
 
-    // adding one question at the time when someone clicks "Next Question"
-    if (countQuestion < arrayInfo.length) {
+// adding one question at the time when someone clicks "Next Question"
+function addQuestions() {
+
+    if (countQuestion < questions.length) {
 
         let node = document.createElement("p");
-        let text = document.createTextNode(arrayInfo[countQuestion].question);
+        let text = document.createTextNode(questions[countQuestion].question);
         node.appendChild(text);
         document.getElementById("div-question").appendChild(node);
-
-        // for loop that creates a button for every possible answer for each question
-        for (let j = 0; j < 4; j++) {
-
-            let node = document.createElement("a");
-            node.setAttribute('href', '#');
-            node.setAttribute('class', 'button-answer')
-            node.setAttribute('data-index', j)
-            let text = document.createTextNode(answers[countQuestion].answer[j]);
-            node.appendChild(text);
-            document.getElementById("div-answer").appendChild(node);
-
-        }
-        // coiunter to move through the indexes of the arrays "questions" and "answers"
-        countQuestion++;
-        countAnswer++;
     }
-})
+}
 
-// let wrong = document.querySelectorAll('.button-answer');
+// function that creates a button for every possible answer for each question
+function addAnswers (){
+
+    for (let j = 0; j < 4; j++) {
+
+        let node = document.createElement("a");
+        node.setAttribute('href', '#');
+        node.setAttribute('class', 'button-answer')
+        node.setAttribute('data-index', j)
+        let text = document.createTextNode(answers[countQuestion].answer[j]);
+        node.appendChild(text);
+        document.getElementById("div-answer").appendChild(node);
+
+    }
+}
+
+// Display questions when the "Next Button" is clicked
+let question = document.getElementById('question');
+question.addEventListener('click', function () {
+
+    clearDivs();
+
+    message();
+
+    addQuestions();
+
+    addAnswers();
+
+    // counter to move through the indexes of the arrays "questions" and "answers"
+    countQuestion++;
+    countAnswer++;
+
+})
 
 // grabbing the div-answer object from the DOM
 let divAnswer = document.getElementById('div-answer');
 divAnswer.addEventListener('click', function (evt) {
-    // get answer elements from the DOM
-    
+
     let answerDom = document.querySelectorAll('.button-answer');
+
     // loop through answer elements
     for (let i = 0; i < answerDom.length; i++) {
-        const answer = answerDom[i];  
-        answer.style.pointerEvents = 'none';     
+        const answer = answerDom[i];
+        answer.style.pointerEvents = 'none';
     }
-    
+
+    // mark the current answer with a background color of green and keeps track of the correct answer
     if (evt.target.getAttribute('data-index') == answers[countAnswer].correctAnswerIndex) {
         evt.target.style.backgroundColor = 'green';
-        console.log('correct');
-        question.style.pointerEvents = 'auto';
-
+        correctAnswers++;
     }
-    else if(evt.target.getAttribute('data-index') != answers[countAnswer].correctAnswerIndex) {
-        console.log('wrong');
-        // wrong.style.pointerEvents = 'none'
-        // wrong.style.backgroundColor = 'red';
+    
+    // mark the wrong answer with a background color of red
+    else if (evt.target.getAttribute('data-index') != answers[countAnswer].correctAnswerIndex) {
         evt.target.style.backgroundColor = 'red';
-        // evt.target.style.pointerEvents = 'none'
+
     }
+
 })
-
-
-
-
-// grabs the "Show Answer" buttom from the DOM
-// let htmlAnswer = document.getElementById('answer');
-
-// let countAnswer = 0;
-
-// show the next answer when "Show Answer" buttom is click
-// htmlAnswer.addEventListener('click', function () {
-
-//     document.getElementById("div-answer").innerHTML = "";
-
-//     if (countAnswer === arrayInfo.length) {
-
-//         const message = document.createElement('p');
-//         const messageText = document.createTextNode('Thank you for participating!')
-//         message.appendChild(messageText);
-//         document.getElementById("div-answer").appendChild(message);
-//     }
-
-//     if (countAnswer < arrayInfo.length) {
-
-//         let node = document.createElement("p");
-//         let text = document.createTextNode(arrayInfo[countAnswer].answer);
-//         node.appendChild(text);
-//         document.getElementById("div-answer").appendChild(node);
-
-//         countAnswer++;
-//     }
-// });
-
-// let htmlQuestions = arrayInfo.filter(list => {
-//     return list.tag === 'HTML';
-// })
-

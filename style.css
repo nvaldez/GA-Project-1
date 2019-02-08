@@ -87,6 +87,8 @@ li {
 }
 #div-question p {
     text-align: center;
+    margin-top: 35%;
+    font-size: 2em; 
 }
 
 #div-answer > a {
@@ -94,10 +96,11 @@ li {
     display: flex;
     flex-direction: column;
     padding: 15px;
-    margin: 30px;
+    margin: 10px;
     border: 2px solid black;
     border-radius: 10px;
     text-decoration: none;
+    color: black;
 }
 
 #mdn {
